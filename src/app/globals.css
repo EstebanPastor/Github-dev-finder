@@ -2,26 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.grid-areas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "a b b"
+    "a c c"
+    "d d d"
+    "e e e"
+    "f f f";
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.section-logo {
+  grid-area: a;
+}
+
+.section-title {
+  grid-area: b;
+}
+
+.section-date {
+  grid-area: c;
+}
+
+.section-description {
+  grid-area: d;
+}
+
+.section-number {
+  grid-area: e;
+}
+
+.section-social {
+  grid-area: f;
+}
+
+@media (min-width: 640px) {
+  .grid-areas {
+    grid-template-columns: 1fr 2fr 2fr;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media (min-width: 1024px) {
+  .grid-areas {
+    grid-template-areas:
+      "a b c c"
+      "a d d d"
+      "a e e e"
+      "e f f f";
+  }
 }
